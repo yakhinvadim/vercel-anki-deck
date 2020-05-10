@@ -1,7 +1,4 @@
 const AnkiExport = require("anki-apkg-export").default
-const microCors = require("micro-cors")
-
-const cors = microCors({ allowMethods: ["POST"] })
 
 async function handleRequest(req, res) {
   const { body } = req
@@ -20,4 +17,4 @@ async function handleRequest(req, res) {
   res.status(200).send(zip)
 }
 
-module.exports = cors(handleRequest)
+module.exports = handleRequest
