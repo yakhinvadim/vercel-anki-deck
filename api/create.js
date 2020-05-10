@@ -17,7 +17,7 @@ async function handleRequest(req, res) {
     `attachment filename="${deckName}.apkg"`
   )
 
-  res.send(zip)
+  res.status(200).send(zip)
 }
 
 module.exports = cors(handleRequest)
