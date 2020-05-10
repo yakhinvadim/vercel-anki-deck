@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "api/create.js",
+  "engines": {
+    "node": "10.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yakhinvadim/vercel-anki-deck.git"
