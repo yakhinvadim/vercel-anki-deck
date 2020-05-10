@@ -1,0 +1,19 @@
+{
+  "name": "vercel-anki-deck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api/create.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yakhinvadim/vercel-anki-deck.git"
+  },
+  "author": "Vadim Yakhin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yakhinvadim/vercel-anki-deck/issues"
+  },
+  "homepage": "https://github.com/yakhinvadim/vercel-anki-deck#readme",
+  "dependencies": {
+    "anki-apkg-export": "^4.0.3"
+  }
+}
