@@ -1,18 +1,23 @@
-const AnkiExport = require("anki-apkg-export").default;
+const AnkiExport = require("anki-apkg-export").default
+const microCors = require("micro-cors")
 
-module.exports = async (req, res) => {
-    const { body } = req;
+const cors = microCors({ allowMethods: ["POST"] })
 
-    const deckName = body.deckName || "anki-deck";
+async function handleRequest(req, res) {
+  const { body } = req
 
-    const apkg = new AnkiExport(deckName, body.template);
-    body.cards.forEach((card) => apkg.addCard(card.front, card.back));
-    const zip = await apkg.save();
+  const deckName = body.deckName || "anki-deck"
 
-    res.setHeader(
-        "Content-Disposition",
-        `attachment; filename="${deckName}.apkg"`
-    );
+  const apkg = new AnkiExport(deckName, body.template)
+  body.cards.forEach((card) => apkg.addCard(card.front, card.back))
+  const zip = await apkg.save()
 
-    res.send(zip)
+  res.setHeader(
+    "Content-Disposition",
+    `attachment filename="${deckName}.apkg"`
+  )
+
+  res.send(zip)
 }
+
+module.exports = cors(handleRequest)
